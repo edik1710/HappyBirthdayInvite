@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invito Speciale - Villa Fiorita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            /* Importante per evitare barre di scorrimento durante l'animazione */
+        }
+
+        .invitation-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+            overflow: hidden;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #ffdde1;
+            z-index: 10;
+            /* Assicura che la card stia sopra lo sfondo ma sotto le emoji */
+            position: relative;
+        }
+
+        .card-header-img {
+            height: 200px;
+            /* Ho mantenuto la tua immagine personalizzata */
+            background-image: url('https://hotelvillafiorita.com/wp-content/uploads/2024/04/Superior-Suite-con-vasca-1.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent);
+        }
+
+        .card-body {
+            padding: 2rem;
+            position: relative;
+        }
+
+        h1.romantic-title {
+            font-family: 'Great Vibes', cursive;
+            color: #d81b60;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .hotel-name {
+            color: #4a4a4a;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .details-box {
+            background-color: #fff0f3;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px dashed #d81b60;
+        }
+
+        .feature-item {
+            color: #880e4f;
+            font-size: 0.95rem;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-valentine {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-valentine:hover {
+            background-color: #ad1457;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .heart-icon {
+            color: #d81b60;
+            animation: beat 1s infinite alternate;
+        }
+
+        @keyframes beat {
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        /* --- STILE PER LE EMOJI FLUTTUANTI --- */
+        .falling-emoji {
+            position: fixed;
+            top: -10vh;
+            user-select: none;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fall linear forwards;
+        }
+/* Nuovo stile per la lista dei servizi */
+        .amenities-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr; /* 1 colonna su schermi piccolissimi */
+            gap: 8px;
+        }
+
+        /* Su schermi leggermente più grandi dividiamo in 2 colonne per risparmiare spazio */
+        @media (min-width: 350px) {
+            .amenities-list {
+                grid-template-columns: 1fr 1fr; 
+            }
+        }
+
+        .amenities-list li {
+            font-size: 0.75rem; /* Testo piccolo ed elegante */
+            color: #666;
+            display: flex;
+            align-items: start;
+            line-height: 1.4;
+        }
+
+        .amenities-list li i {
+            color: #d81b60;
+            margin-right: 8px;
+            margin-top: 3px;
+            min-width: 15px; /* Allinea bene le icone */
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="invitation-card fade-in">
+        <div class="card-header-img">
+            <div class="overlay"></div>
+        </div>
+
+        <div class="card-body">
+            <div class="mb-2">
+                <i class="fas fa-heart heart-icon fa-2x"></i>
+            </div>
+
+            <h1 class="romantic-title">Per Te</h1>
+            <p class="text-muted">Un invito speciale per il tuo compleanno</p>
+
+            <h2 class="hotel-name">Villa Fiorita</h2>
+
+            <div class="details-box">
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt"></i> 21 Febbraio 2026
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bed"></i> <strong>Suite Superior</strong>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-hot-tub"></i> Vasca Idromassaggio
+                </div>
+            </div>
+
+            <div class="text-start">
+                <p class="text-center text-muted mb-2" style="font-size: 0.9rem;">Dettagli della camera:</p>
+                <ul class="amenities-list">
+                    <li><i class="fas fa-heart"></i> Suite romantica</li>
+                    <li><i class="fas fa-bed"></i> Letto a baldacchino</li>
+                    <li><i class="fas fa-utensils"></i> Cena in camera (req)</li>
+                    <li><i class="fas fa-hot-tub"></i> Idromassaggio 2 posti</li>
+                    <li><i class="fas fa-tv"></i> TV 55" fronte vasca</li>
+                    <li><i class="fas fa-desktop"></i> TV LCD fronte letto</li>
+                    <li><i class="fas fa-door-open"></i> Balconcino privato</li>
+                    <li><i class="fas fa-spa"></i> Ingressso SPA</li>
+                </ul>
+            </div>
+
+            <a href="#" class="btn btn-valentine" id="acceptBtn" onclick="festeggia(event)">
+                Accetta <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function festeggia(event) {
+            event.preventDefault(); // Evita che il link ricarichi la pagina o salti in cima
+
+            const btn = document.getElementById('acceptBtn');
+            btn.innerHTML = 'Evviva! 🎉'; // Cambia il testo del bottone
+            btn.classList.add('disabled'); // Disabilita il click multiplo (opzionale)
+
+            // Lista di emoji da usare
+            const emojis = ['❤️', '💖', '🥂', '🍾', '🌹', '✨', '🎉', '🏩', '😍'];
+
+            // Crea 50 emoji
+            for (let i = 0; i < 50; i++) {
+                createEmoji(emojis[Math.floor(Math.random() * emojis.length)]);
+            }
+        }
+
+        function createEmoji(char) {
+            const emoji = document.createElement('div');
+            emoji.innerText = char;
+            emoji.classList.add('falling-emoji');
+
+            // Posizione orizzontale casuale
+            emoji.style.left = Math.random() * 100 + 'vw';
+
+            // Grandezza casuale
+            emoji.style.fontSize = (Math.random() * 20 + 20) + 'px';
+
+            // Durata caduta casuale (tra 2 e 5 secondi)
+            emoji.style.animationDuration = (Math.random() * 3 + 2) + 's';
+
+            // Ritardo partenza casuale
+            emoji.style.animationDelay = Math.random() * 2 + 's';
+
+            document.body.appendChild(emoji);
+
+            // Rimuovi l'elemento dal DOM alla fine dell'animazione per pulizia
+            setTimeout(() => {
+                emoji.remove();
+            }, 6000);
+        }
+    </script>
+</body>
+
+</html>
